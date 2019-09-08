@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      Codepen
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngFor="let job of data?.jobs" href={{job.url}}>
+    <ion-card-content>
+      <ion-img [src]="job.urlToImage"></ion-img>
+      <br>
+      <ion-card-title>{{job.title}}</ion-card-title>
+
+      <p>{{job.company_name}}</p>
+      <strong float-right>{{job.remote ? 'Remote' : job.location}}</strong>
+      <small>{{job.updated_at | date}}</small>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- <ion-infinite-scroll (ionInfinite)="loadMoreNews($event)">
+    <ion-infinite-scroll-content loadingSpinner="bubble">
+      <ion-spinner name="dots"></ion-spinner>
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll> -->
+</ion-content>
